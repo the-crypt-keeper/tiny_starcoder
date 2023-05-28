@@ -1,0 +1,65 @@
+SanityMeaningOfLife-python:
+    Signature: "meaning_of_life()"
+    Input: "with no inputs"
+    Output: "a single integer, the answer to life the universe and everything"
+    Fact: "the answer to life the universe and everything is 42"
+
+SanityList-python:
+    Signature: "things()"
+    Input: "with no inputs"
+    Output: "a list with three values: the number 5, the string 'foobar', the capital city of Spain"
+    Fact: "the capital city of Spain is Madrid"
+
+SanitySecretIdentityMap-python:
+    Signature: "secretidentities()"
+    Input: "with no inputs"
+    Output: "an object mapping the superheroes Superman, Batman and Spider-Man to their real names"
+    Fact: "Superman's real name is Clark Kent. Batman's real name is Bruce Wayne. Spider-Man's real name is Peter Parker."
+
+GCDZeroShot-python:
+    Signature: "gcd(a, b)"
+    Input: "with two inputs a and b"
+    Output: "the greatest common demoninator (gcd) of a and b"
+
+GCDMisnamed-python:
+    Signature: "fofx(x, banana)"
+    Input: "with two inputs x and banana"
+    Output: "the greatest common demoninator (gcd) of x and banana"
+
+FactorialZeroShot-python:
+    Signature: "factorial(n)"
+    Input: "with input n"
+    Output: "the factorial of n using iteration"
+
+FactorialRecursiveZeroShot-python:
+    Signature: "factorial(n)"
+    Input: "with input n"
+    Output: "the factorial of n using recursion"
+
+FactorialMisnamed-python:
+    Signature: "glork(bork)"
+    Input: "with input bork"
+    Output: "the factorial of bork"
+
+FibonacciZeroShot-python:
+    Signature: "fib(n)"
+    Input: "with input element number n"
+    Output: "the n-th element of the fibbonaci sequence"
+    Fact: "The fibonnaci sequence is defined by the boundary conditions fib(0) == 0, fib(1) == 1 and the recursive relation fib(n) == fib(n-1) + fib(n-2)"
+
+FibonacciListZeroShot-python:
+    Signature: "fib(n)"
+    Input: "with input length n"
+    Output: "a list with the first n elements of the fibbonaci sequence"
+    Fact: "The fibonnaci sequence is defined by the boundary conditions fib(0) == 0, fib(1) == 1 and the recursive relation fib(n) == fib(n-1) + fib(n-2)"
+
+FibonacciMisnamed-python:
+    Signature: "glork(bork)"
+    Input: "with input length bork"
+    Output: "a list with the first bork elements of the fibbonaci sequence"
+    Fact: "The fibonnaci sequence is defined by the boundary conditions fib(0) == 0, fib(1) == 1 and the recursive relation fib(n) == fib(n-1) + fib(n-2)"
+
+StringCountTokens-python:
+    Signature: "substrcount(str, substr)"
+    Input: "with inputs str and substr"
+    Output: "counts the number of times the sub-string substr occurs in str"
