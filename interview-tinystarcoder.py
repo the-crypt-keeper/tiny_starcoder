@@ -18,28 +18,13 @@ params = {
     'repetition_penalty': 1.17
 }
 
-# Prompt formats
-#PROMPTS = [
-#    Template("""# a function {{Input}} that returns {{Output}}
-#def {{Signature}}:"""),
-#    Template("""def {{Signature}}:
-#    '''a function {{Input}} that returns {{Output}}'''"""), 
-#]
-
 input_template = Template("""<fim_prefix>def {{Signature}}:
-    '''a function {{Input}} that returns {{Output}}'''
+    '''a function {{Input}} that returns {{Output}}{% if Fact %} given {{Fact}}{% endif %}'''
     <fim_suffix>
 
 # another function
 <fim_middle>""")
 
-input_fact_template = Template("""<fim_prefix>def {{Signature}}:
-    '''a function {{Input}} that returns {{Output}}, given {{Fact}}'''
-    <fim_suffix>
-
-# another function
-<fim_middle>""")
-                                   
 output_template = Template("""def {{Signature}}:
     '''a function {{Input}} that computes {{Output}}'''
     {{Answer}}""")
@@ -49,7 +34,9 @@ interview = yaml.safe_load(open("tiny-interview.yml"))
 for name, challenge in interview.items():
     
     challenge['name'] = name
-    input = input_template.render(**challenge) if not challenge.get('Fact') else input_fact_template.render(**challenge)
+    input = input_template.render(**challenge)
+
+    print(input)
     
     inputs = tokenizer.encode(input, return_tensors="pt").to(device)
     outputs = model.generate(inputs, pad_token_id=tokenizer.eos_token_id, **params)
